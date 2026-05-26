@@ -1,0 +1,22 @@
+artifact_path: /Users/zainabkhan/Desktop/customer-intelligence-pipeline/mlruns/1/models/m-00c3dce206aa4a30be10f52f4bb87949/artifacts
+flavors:
+  python_function:
+    data: model.ubj
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.11.15
+  xgboost:
+    code: null
+    data: model.ubj
+    model_class: xgboost.sklearn.XGBClassifier
+    model_format: ubj
+    xgb_version: 3.2.0
+mlflow_version: 3.12.0
+model_id: m-00c3dce206aa4a30be10f52f4bb87949
+model_size_bytes: 76788
+model_uuid: m-00c3dce206aa4a30be10f52f4bb87949
+prompts: null
+run_id: 5db8ccee062843af931bf86039f82bc7
+utc_time_created: '2026-05-26 08:12:02.359986'

@@ -1,0 +1,26 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install flake8 pandas pyarrow
+
+      - name: Lint Python files
+        run: flake8 spark/ mlflow/ --max-line-length=100 --ignore=E501
+
+      - name: Check dependencies work
+        run: python -c "import pandas, pyarrow; print('All dependencies OK')"
