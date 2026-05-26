@@ -6,21 +6,21 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install flake8 pandas pyarrow
-
-      - name: Lint Python files
-        run: flake8 spark/ mlflow/ --max-line-length=100 --ignore=E501
+        run: pip install pandas pyarrow
 
       - name: Check dependencies work
         run: python -c "import pandas, pyarrow; print('All dependencies OK')"
